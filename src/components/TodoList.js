@@ -11,7 +11,7 @@ const TodoList = () => {
     console.log(todo);
     return (
       <div className="todoDiv">
-        <h3>MyToDo</h3>
+        <h2>MyToDo</h2>
         <div>
           <AddTask />
 

@@ -11,7 +11,7 @@ const Todo = ({task, isCompleted, id, toggleTodo}) => {
     >
       <CSSTransition key="normal" timeout={500} className="task-text">
         <li className="todo-list" onDoubleClick={toggleTodo}>
-          <span>{task}</span>
+          <span className="text">{task}</span>
           <div>
             <span className="edit">
           
