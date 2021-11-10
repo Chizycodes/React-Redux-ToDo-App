@@ -10,7 +10,7 @@ const Login = (props) => {
   const auth = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +18,7 @@ const Login = (props) => {
   };
 
   useEffect(() => {
+    const navigate = useNavigate();
     if (auth.isLogged) {
       navigate("/todolist");
     }

@@ -1,6 +1,6 @@
 //import {CSSTransition, TransitionGroup} from "react-transition-group";
 import {useSelector, useDispatch} from "react-redux";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+//import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { taskCompleted } from "../store/actions/todo";
 import AddTask from "./AddTask";
 import Todo from "./Todo";
