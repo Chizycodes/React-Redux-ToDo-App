@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import Button from "./Button";
 import { useDispatch, useSelector } from "react-redux";
 import { authAction } from "../store/actions/auth";
 
-const Login = (props) => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const auth = useSelector((state) => state.auth);
@@ -21,7 +21,7 @@ const Login = (props) => {
     if (auth.isLogged) {
       navigate("/todolist");
     }
-  }, [auth]);
+  }, [auth, navigate]);
   return (
     <div className="login">
       <h3>Welcome to MyToDo!</h3>

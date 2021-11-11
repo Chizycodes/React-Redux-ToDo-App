@@ -121,6 +121,16 @@ body {
   cursor: pointer;
 }
 
+.save-btn {
+  background-color: rgb(118, 221, 15);
+  font-size: 1rem;
+  border: none;
+  height: 2.5rem;
+  width: 15%;
+  color: #fff;
+  display: none;
+}
+
 ul {
   margin-bottom: 1.5rem;
   width: 100%;
@@ -130,11 +140,20 @@ ul {
 
 li {
   list-style-type: none;
-  border-left: 3px solid rgb(255, 145, 0);
   padding: 3px 0 3px 5px;
   display: flex;
   justify-content: space-between;
+}
+
+.todo-list {
+  text-decoration: none;
+  border-left: 3px solid rgb(255, 145, 0);
   margin-bottom: 1rem;
+}
+
+.todo-completed {
+  text-decoration: line-through;
+  border-left: 3px solid rgba(172, 134, 86, 0.363);
 }
 
 .edit {

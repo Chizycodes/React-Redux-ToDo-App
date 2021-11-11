@@ -1,4 +1,4 @@
-import { IS_LOGGED, USER_DETAILS } from "../constants";
+import { IS_LOGGED, USER_DETAILS, LOGOUT } from "../constants";
 
 // export const authAction = async(payload) => {
 //
@@ -19,3 +19,10 @@ export const authAction = (payload) => {
     });
   };
 };
+
+export const logout = (payload) => {
+  return {
+    type: LOGOUT,
+    payload
+  }
+}
