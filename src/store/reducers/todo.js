@@ -4,9 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const initialState = {
   todos: [
     {
-      id: 1,
-      task: "Write some code",
-      isComplete: false,
+      
     },
   ],
 };
