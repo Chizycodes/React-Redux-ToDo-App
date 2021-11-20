@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import {
@@ -16,6 +16,7 @@ import { useNavigate } from "react-router";
 const TodoList = () => {
   const todo = useSelector((state) => ({ ...state.todo }));
   const auth = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,8 +24,8 @@ const TodoList = () => {
     dispatch(addTask(newTask));
   };
 
-  const update = (id, updatedTask) => {
-    dispatch(updateTask({ id, updatedTask }));
+  const update = (id, updatedTodo) => {
+    dispatch(updateTask({ id, updatedTodo }));
   };
 
   const handleLogout = () => {
@@ -38,10 +39,14 @@ const TodoList = () => {
 
   return (
     <div className="todoDiv">
-      <h2>MyToDo</h2>
-      <Button text="Logout" className="logout-btn" onClick={handleLogout} />
-      <div>
-        <AddTask createTask={createTask} updateTask={update} id={todo.id} />
+      <div className="header">
+        <h2>MyToDo</h2>
+        <Button text="Logout" className="logout-btn" onClick={handleLogout} />
+      </div>
+
+      <div className="add-task">
+        <p>*Double click to mark task as done</p>
+        <AddTask createTask={createTask} />
 
         <ul>
           <TransitionGroup className="todoList">
@@ -52,7 +57,7 @@ const TodoList = () => {
                     <Todo
                       key={todo.id}
                       id={todo.id}
-                      task={todo.task}
+                      myTask={todo.task}
                       isComplete={todo.isComplete}
                       toggleTodo={() => dispatch(taskCompleted(todo))}
                       deleteTask={() => dispatch(deleteTask(todo))}

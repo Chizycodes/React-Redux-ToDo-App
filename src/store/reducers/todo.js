@@ -2,11 +2,7 @@ import { DELETE_TASK, ADD_TASK, TASK_COMPLETED, EDIT_TASK } from "../constants";
 import { v4 as uuidv4 } from "uuid";
 
 const initialState = {
-  todos: [
-    {
-      
-    },
-  ],
+  todos: [{}],
 };
 
 export const todoReducer = (state = initialState, action) => {
@@ -34,11 +30,11 @@ export const todoReducer = (state = initialState, action) => {
       };
 
     case EDIT_TASK:
-      const updatedTasks = state.todos.map((item) => {
-        if (item.id === action.payload.id) {
-          return { ...item, task: action.payload.updateTask };
+      const updatedTasks = state.todos.map((todo) => {
+        if(todo.id === action.payload.id) {
+          return { ...todo, task: action.payload.updatedTodo }
         }
-        return item;
+        return todo;
       });
       return {
         ...state,
@@ -47,9 +43,9 @@ export const todoReducer = (state = initialState, action) => {
 
     case TASK_COMPLETED:
       const toggleTodo = state.todos.map((item) =>
-        item.id === action.payload.id
-          ? { ...action.payload, isComplete: !action.payload.isComplete }
-          : item
+        item.id === action.payload.id ?
+           { ...action.payload, isComplete: !action.payload.isComplete }
+           : item
       );
       return {
         ...state,
