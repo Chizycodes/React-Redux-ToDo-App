@@ -29,7 +29,10 @@ const TodoList = () => {
   };
 
   const handleLogout = () => {
-    dispatch(logout());
+    setTimeout(() => {
+      dispatch(logout());
+    }, 3000)
+    
   };
   useEffect(() => {
     if (!auth.isLogged) {
